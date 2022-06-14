@@ -1,9 +1,11 @@
 .todolist {
   background: #dee0e0;
   width: 70vw;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  /* align-items: ; */
   padding: 20px;
 }
 
@@ -22,26 +24,39 @@
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 .bottom__leftitems {
   display: inherit;
-  flex: 1
- 
+  flex: 1;
+}
+
+.bottom__leftitems_count {
+  font-weight: 500;
 }
 
 .bottom__groups {
   display: inherit;
   justify-content: space-evenly;
-  flex: 1
+  flex: 1;
 }
 
 .groups__item {
-  cursor: pointer
+  cursor: pointer;
+  text-align: center;
+  padding: 5px;
+}
+
+.groups__item:hover {
+  color: rgb(128, 139, 150);
 }
 
 .bottom__clear {
   flex: 1;
   text-align: right;
+  cursor: pointer;
+}
+
+.bottom__clear:hover {
+  color: rgb(128, 139, 150);
 }

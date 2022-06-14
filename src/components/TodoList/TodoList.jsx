@@ -27,18 +27,7 @@ const TodoList = () => {
 
   const [group, setGroup] = useState(ALL); //active | complited | all
 
-  // const updateTodo = useCallback(
-  //   (id) => {
-  //     debugger
-  //     todos.map(todo => {
-  //       if (todo.id === id) {
-  //         return {...todo, complited: !todo.complited}
-  //       }
-  //       return todo
-  //     })
-  //   },
-  //   [todos],
-  // );
+  const activeCount = todos.filter(todo => todo.status === ACTIVE).length
 
   const updateTodo = (id) => {
     debugger;
@@ -69,8 +58,16 @@ const TodoList = () => {
     setGroup(COMPLITED)
   };
 
+  const clearComplited = () => {
+    setTodos(todos.filter(todo => todo.status !== COMPLITED))
+  }
+
   const filteredTodos = (list) => 
     group !== "all" ? list.filter((todo) => todo.status === group) : list;
+
+  const activeItemStyle = {
+    border: "0.5px solid gray"
+  }
 
   return (
     <div className="todolist">
@@ -85,23 +82,23 @@ const TodoList = () => {
       {todos ? (
         <div className="todolist__bottom">
           <div className="bottom__leftitems">
-            <div>2</div>
-            <div>items left</div>
+            <div className="bottom__leftitems_count">{activeCount}&nbsp;</div>
+            <div> items left</div>
           </div>
 
           <div className="bottom__groups">
-            <div className="groups__item" onClick={displayAll}>
+            <div className="groups__item" style={group === ALL ? activeItemStyle : undefined} onClick={displayAll}>
               All
             </div>
-            <div className="groups__item" onClick={displayActive}>
+            <div className="groups__item" style={group === ACTIVE ? activeItemStyle : undefined} onClick={displayActive}>
               Active
             </div>
-            <div className="groups__item" onClick={displayComplited}>
+            <div className="groups__item" style={group === COMPLITED ? activeItemStyle : undefined} onClick={displayComplited}>
               Complited
             </div>
           </div>
 
-          <div className="bottom__clear">Clear complited</div>
+          <div className="bottom__clear" onClick={clearComplited}>Clear complited</div>
         </div>
       ) : undefined}
     </div>
