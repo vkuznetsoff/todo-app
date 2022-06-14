@@ -2,6 +2,8 @@ import { useCallback, useState } from "react";
 import { ACTIVE, ALL, COMPLITED } from "../../statuses";
 import Todo from "../Todo/Todo";
 
+import arrow from "../../assets/img/arrow.svg"
+
 import "./TodoList.css";
 
 const TodoList = () => {
@@ -73,6 +75,12 @@ const TodoList = () => {
     <div className="todolist">
       <div className="todolist__header">Todo List</div>
       <div className="todolist__content">
+
+        <div className="content_textarea">
+          <img src={arrow} alt="arrow" />
+        <textarea name="textarea" placeholder="What needs to be done?"></textarea>
+          </div>
+        
         {
         filteredTodos(todos).map((todo) => (
           <Todo todo={todo} updateTodo={updateTodoMemoized} />

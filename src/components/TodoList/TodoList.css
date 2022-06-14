@@ -7,6 +7,7 @@
   justify-content: flex-start;
   /* align-items: ; */
   padding: 20px;
+  font-size: 24pt;
 }
 
 .todolist__header {
@@ -16,7 +17,25 @@
 
 .todolist__content {
   background: antiquewhite;
+  
+}
+
+.content_textarea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content_textarea img {
+  height: 100%;
+
+}
+
+.todolist__content textarea {
+  font-style: oblique;
   font-size: 24pt;
+  border: none;
+  resize: none;
 }
 
 .todolist__bottom {
