@@ -1,0 +1,19 @@
+.todolist {
+  background: #dee0e0;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.todolist__header {
+  color: rgba(128, 0, 0, 0.7);
+  font-size: 40pt;
+  
+}
+
+.todolist__content {
+    background: antiquewhite;
+    font-size: 24pt;
+    margin: 20px;
+}
