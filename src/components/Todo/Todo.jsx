@@ -1,15 +1,18 @@
-import "./Todo.css"
+import { COMPLITED } from "../../statuses";
+import "./Todo.css";
 
-const Todo = ({ todo }) => {
-  const style = {
-    textDecoration: "underline",
+const Todo = ({ todo, updateTodo }) => {
+  const complitedStyle = {
+    textDecoration: "line-through",
+    opacity: "0.2"
+
   };
 
   return (
     <div className="todo">
       <div className="todo__content">
-        <input type="checkbox" className="round__checkbox"/>
-        <div className="todo__text" style={style}>
+        <input type="checkbox" className="round__checkbox" onChange={() => updateTodo(todo.id)}/>
+        <div className="todo__text" style={todo.complited ? complitedStyle : undefined}>
           {todo.text}
         </div>
       </div>
@@ -17,4 +20,4 @@ const Todo = ({ todo }) => {
   );
 };
 
-export default Todo
+export default Todo;
