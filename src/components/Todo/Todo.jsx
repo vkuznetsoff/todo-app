@@ -11,8 +11,8 @@ const Todo = ({ todo, updateTodo }) => {
   return (
     <div className="todo">
       <div className="todo__content">
-        <input type="checkbox" className="round__checkbox" onChange={() => updateTodo(todo.id)}/>
-        <div className="todo__text" style={todo.complited ? complitedStyle : undefined}>
+        <input type="checkbox" checked={todo.status === COMPLITED ? true : false} className="round__checkbox" onChange={() => updateTodo(todo.id)}/>
+        <div className="todo__text" style={todo.status === COMPLITED ? complitedStyle : undefined}>
           {todo.text}
         </div>
       </div>

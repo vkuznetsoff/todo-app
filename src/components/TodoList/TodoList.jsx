@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
-import { ACTIVE, COMPLITED } from "../../statuses";
+import { ACTIVE, ALL, COMPLITED } from "../../statuses";
 import Todo from "../Todo/Todo";
+
 import "./TodoList.css";
 
 const TodoList = () => {
@@ -8,21 +9,23 @@ const TodoList = () => {
     {
       id: 1,
       text: "Hello",
-      complited: true,
+      status: COMPLITED,
     },
 
     {
       id: 2,
       text: "Good Morning",
-      complited: false,
+      status: ACTIVE,
     },
 
     {
       id: 3,
       text: "I'm John",
-      complited: false,
+      status: ACTIVE,
     },
   ]);
+
+  const [group, setGroup] = useState(ALL); //active | complited | all
 
   // const updateTodo = useCallback(
   //   (id) => {
@@ -42,7 +45,10 @@ const TodoList = () => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
-          return { ...todo, complited: !todo.complited };
+          return {
+            ...todo,
+            status: todo.status === COMPLITED ? ACTIVE : COMPLITED,
+          };
         }
         return todo;
       })
@@ -51,11 +57,21 @@ const TodoList = () => {
 
   const updateTodoMemoized = useCallback((id) => updateTodo(id), [todos]);
 
+  const displayAll = () => {};
+
+  const displayActive = () => {};
+
+  const displayComplited = () => {};
+
+  const filteredTodos = (list) => 
+    group !== "all" ? list.filter((todo) => todo.status === group) : list;
+
   return (
     <div className="todolist">
       <div className="todolist__header">Todo List</div>
       <div className="todolist__content">
-        {todos.map((todo) => (
+        {
+        filteredTodos(todos).map((todo) => (
           <Todo todo={todo} updateTodo={updateTodoMemoized} />
         ))}
       </div>
@@ -68,9 +84,15 @@ const TodoList = () => {
           </div>
 
           <div className="bottom__groups">
-            <div className="groups__item">All</div>
-            <div className="groups__item">Active</div>
-            <div className="groups__item">Complited</div>
+            <div className="groups__item" onClick={displayAll}>
+              All
+            </div>
+            <div className="groups__item" onClick={displayActive}>
+              Active
+            </div>
+            <div className="groups__item" onClick={displayComplited}>
+              Complited
+            </div>
           </div>
 
           <div className="bottom__clear">Clear complited</div>
