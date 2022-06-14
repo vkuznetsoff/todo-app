@@ -57,11 +57,17 @@ const TodoList = () => {
 
   const updateTodoMemoized = useCallback((id) => updateTodo(id), [todos]);
 
-  const displayAll = () => {};
+  const displayAll = () => {
+    setGroup(ALL)
+  };
 
-  const displayActive = () => {};
+  const displayActive = () => {
+    setGroup(ACTIVE)
+  };
 
-  const displayComplited = () => {};
+  const displayComplited = () => {
+    setGroup(COMPLITED)
+  };
 
   const filteredTodos = (list) => 
     group !== "all" ? list.filter((todo) => todo.status === group) : list;
