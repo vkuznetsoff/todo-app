@@ -17,7 +17,6 @@
     
 }
 
-
-
 .todo__text {
+  pointer-events: none;
 }

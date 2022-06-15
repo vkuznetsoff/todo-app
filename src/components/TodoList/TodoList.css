@@ -1,11 +1,9 @@
 .todolist {
   background: #dee0e0;
   width: 70vw;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* align-items: ; */
   padding: 20px;
   font-size: 24pt;
 }
@@ -13,34 +11,46 @@
 .todolist__header {
   color: rgba(128, 0, 0, 0.7);
   font-size: 40pt;
-  position: relative;
+  margin-bottom: 20px;
 }
 
 .todolist__content {
   background: antiquewhite;
-  
+
+}
+
+.content_inputblock {
+  background: rgb(250, 249, 248);
+  padding: 10px;
+
 }
 
 .content_textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 10px;
 }
 
 .content_textarea img {
   height: 100%;
+  margin-right: 20px;
 
 }
 
-.todolist__content textarea {
+.content_textarea textarea {
   font-style: oblique;
   flex: 1;
   font-size: 24pt;
+  line-height: 36pt;
   border: none;
   outline: none;
   resize: none;
-  background: antiquewhite;
- 
+  background: none;
+  max-height: 40px;
+  overflow: hidden;
+
+
 }
 
 .todolist__bottom {
@@ -48,6 +58,8 @@
   margin-top: 20px;
   display: flex;
   flex-direction: row;
+  align-items: baseline;
+  font-size: 16pt;
 }
 
 .bottom__leftitems {
@@ -69,6 +81,7 @@
   cursor: pointer;
   text-align: center;
   padding: 5px;
+  
 }
 
 .groups__item:hover {
@@ -83,4 +96,11 @@
 
 .bottom__clear:hover {
   color: rgb(128, 139, 150);
+}
+
+.content__comment {
+  font-size: 18pt;
+  font-style: oblique;
+  opacity: 50%;
+  padding: 10px;
 }

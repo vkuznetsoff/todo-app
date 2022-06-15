@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { ACTIVE, ALL, COMPLITED } from "../../statuses";
 import Todo from "../Todo/Todo";
+import uniqid from "uniqid"
 
 import arrow from "../../assets/img/arrow.svg"
 
@@ -31,9 +32,10 @@ const TodoList = () => {
   const [group, setGroup] = useState(ALL); //active | complited | all
 
   const activeCount = todos.filter(todo => todo.status === ACTIVE).length
+  const complitedCount = todos.filter(todo => todo.status === COMPLITED).length
 
   const updateTodo = (id) => {
-    debugger;
+
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
@@ -69,29 +71,47 @@ const TodoList = () => {
     group !== "all" ? list.filter((todo) => todo.status === group) : list;
 
   const activeItemStyle = {
-    border: "0.5px solid gray"
+    border: "0.5px solid gray",
+    borderRadius: "10px",
+    background: "grey",
+    color: "antiquewhite"
+  }
+
+  const [text, setText] = useState("")
+
+  const inputTextarea = (e) => {
+    if (e.key === "Enter" && e.target.value.trim()) {
+     setTodos([...todos, {id: uniqid(), text: e.target.value.trim(), status: ACTIVE}])
+     setText("")
+    }
+   
+    
   }
 
   return (
     <div className="todolist">
-      <div className="todolist__header">Todo List
-        
-      </div>
-      <Checkbox />
+      <div className="todolist__header">Todo List</div>
 
+      <div className="content_inputblock">
+          <div className="content_textarea">
+            <img src={arrow} alt="arrow" />
+            <textarea name="textarea" placeholder="What needs to be done?" 
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onKeyDown={(e) => inputTextarea(e)}></textarea>
+          </div>
+
+        </div>
 
       <div className="todolist__content">
 
-        <div className="content_textarea">
-          <img src={arrow} alt="arrow" />
-
-          <textarea name="textarea" placeholder="What needs to be done?"></textarea>
-        </div>
-
-        {
-          filteredTodos(todos).map((todo) => (
-            <Todo todo={todo} updateTodo={updateTodoMemoized} />
+        {filteredTodos(todos).map((todo) => (
+            <Todo key={todo.id} todo={todo} updateTodo={updateTodoMemoized} />
           ))}
+
+        { complitedCount === 0 && group === COMPLITED ? <div className="content__comment">Нет завершенных заданий</div> : undefined}
+        { activeCount === 0  && group === ACTIVE ? <div className="content__comment" >Нет активных заданий</div> : undefined}
+        { todos.length === 0 && group === ALL ? <div className="content__comment" >Нет заданий</div> : undefined}
       </div>
 
       {todos ? (
@@ -103,13 +123,13 @@ const TodoList = () => {
 
           <div className="bottom__groups">
             <div className="groups__item" style={group === ALL ? activeItemStyle : undefined} onClick={displayAll}>
-              All
+              Все
             </div>
             <div className="groups__item" style={group === ACTIVE ? activeItemStyle : undefined} onClick={displayActive}>
-              Active
+              Активные
             </div>
             <div className="groups__item" style={group === COMPLITED ? activeItemStyle : undefined} onClick={displayComplited}>
-              Complited
+              Завершенные
             </div>
           </div>
 
