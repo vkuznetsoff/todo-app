@@ -79,13 +79,20 @@ const TodoList = () => {
 
   const [text, setText] = useState("")
 
-  const inputTextarea = (e) => {
-    if (e.key === "Enter" && e.target.value.trim()) {
-     setTodos([...todos, {id: uniqid(), text: e.target.value.trim(), status: ACTIVE}])
-     setText("")
+  const addTodo = (text) => {
+    setTodos([...todos, { id: uniqid(), text: text.trim(), status: ACTIVE }])
+    setText("")
+  }
+  const inputImg = () => {
+    if (text.trim()) {
+      addTodo(text)
     }
-   
-    
+  }
+
+  const inputTextarea = (e) => {
+    if (e.key === "Enter" && text.trim()) {
+      addTodo(text)
+    }
   }
 
   return (
@@ -93,32 +100,36 @@ const TodoList = () => {
       <div className="todolist__header">Todo List</div>
 
       <div className="content_inputblock">
-          <div className="content_textarea">
-            <img src={arrow} alt="arrow" />
-            <textarea name="textarea" placeholder="What needs to be done?" 
+        <div className="content_textarea">
+          <img src={arrow} alt="arrow" onClick={inputImg} />
+          <textarea name="textarea" placeholder="What needs to be done?"
             value={text}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => inputTextarea(e)}></textarea>
-          </div>
-
         </div>
+
+      </div>
 
       <div className="todolist__content">
 
         {filteredTodos(todos).map((todo) => (
-            <Todo key={todo.id} todo={todo} updateTodo={updateTodoMemoized} />
-          ))}
+          <Todo key={todo.id} todo={todo} updateTodo={updateTodoMemoized} />
+        ))}
 
-        { complitedCount === 0 && group === COMPLITED ? <div className="content__comment">Нет завершенных заданий</div> : undefined}
-        { activeCount === 0  && group === ACTIVE ? <div className="content__comment" >Нет активных заданий</div> : undefined}
-        { todos.length === 0 && group === ALL ? <div className="content__comment" >Нет заданий</div> : undefined}
+        {complitedCount === 0 && group === COMPLITED ? <div className="content__comment">Нет завершенных заданий</div> : undefined}
+        {activeCount === 0 && group === ACTIVE ? <div className="content__comment" >Нет активных заданий</div> : undefined}
+        {todos.length === 0 && group === ALL ? <div className="content__comment" >Нет заданий</div> : undefined}
       </div>
 
       {todos ? (
         <div className="todolist__bottom">
           <div className="bottom__leftitems">
-            <div className="bottom__leftitems_count">{activeCount}&nbsp;</div>
-            <div> items left</div>
+            <div> Активных:</div>
+            <div className="bottom__leftitems_count">
+
+              &nbsp;{activeCount}
+
+            </div>
           </div>
 
           <div className="bottom__groups">
@@ -133,7 +144,12 @@ const TodoList = () => {
             </div>
           </div>
 
-          <div className="bottom__clear" onClick={clearComplited}>Clear complited</div>
+          <div className="bottom__clear" onClick={clearComplited}>
+            <div className="bottom__clear__text">
+              Удалить завершенные
+            </div>
+
+          </div>
         </div>
       ) : undefined}
     </div>
