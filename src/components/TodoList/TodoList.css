@@ -13,6 +13,7 @@
 .todolist__header {
   color: rgba(128, 0, 0, 0.7);
   font-size: 40pt;
+  position: relative;
 }
 
 .todolist__content {
@@ -33,9 +34,13 @@
 
 .todolist__content textarea {
   font-style: oblique;
+  flex: 1;
   font-size: 24pt;
   border: none;
+  outline: none;
   resize: none;
+  background: antiquewhite;
+ 
 }
 
 .todolist__bottom {

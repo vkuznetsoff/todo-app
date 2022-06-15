@@ -5,6 +5,7 @@ import Todo from "../Todo/Todo";
 import arrow from "../../assets/img/arrow.svg"
 
 import "./TodoList.css";
+import Checkbox from "../Checkbox/Checkbox";
 
 const TodoList = () => {
   const [todos, setTodos] = useState(() => [
@@ -64,7 +65,7 @@ const TodoList = () => {
     setTodos(todos.filter(todo => todo.status !== COMPLITED))
   }
 
-  const filteredTodos = (list) => 
+  const filteredTodos = (list) =>
     group !== "all" ? list.filter((todo) => todo.status === group) : list;
 
   const activeItemStyle = {
@@ -73,18 +74,24 @@ const TodoList = () => {
 
   return (
     <div className="todolist">
-      <div className="todolist__header">Todo List</div>
+      <div className="todolist__header">Todo List
+        
+      </div>
+      <Checkbox />
+
+
       <div className="todolist__content">
 
         <div className="content_textarea">
           <img src={arrow} alt="arrow" />
-        <textarea name="textarea" placeholder="What needs to be done?"></textarea>
-          </div>
-        
+
+          <textarea name="textarea" placeholder="What needs to be done?"></textarea>
+        </div>
+
         {
-        filteredTodos(todos).map((todo) => (
-          <Todo todo={todo} updateTodo={updateTodoMemoized} />
-        ))}
+          filteredTodos(todos).map((todo) => (
+            <Todo todo={todo} updateTodo={updateTodoMemoized} />
+          ))}
       </div>
 
       {todos ? (

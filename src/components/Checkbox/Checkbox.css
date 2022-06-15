@@ -1,0 +1,29 @@
+.checkbox {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+
+}
+
+.checkbox__round {
+    position: relative;
+
+}
+
+.checkbox__round img {
+    width: 40px;
+}
+
+.checkbox__checked {
+    position: absolute;
+    width: 30px;
+    left: 8px;
+    top: -5px;
+}
+
+
+.checkbox__checked img {
+    width: 90%;
+
+
+}
