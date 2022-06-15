@@ -6,7 +6,6 @@ import uniqid from "uniqid"
 import arrow from "../../assets/img/arrow.svg"
 
 import "./TodoList.css";
-import Checkbox from "../Checkbox/Checkbox";
 
 const TodoList = () => {
   const [todos, setTodos] = useState(() => [

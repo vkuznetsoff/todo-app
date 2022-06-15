@@ -1,7 +1,9 @@
 .todolist {
   background: #dee0e0;
-  width: 70vw;
+  width: 50%;
+  min-width: fit-content;
   display: flex;
+  flex: 0 1 auto;
   flex-direction: column;
   justify-content: flex-start;
   padding: 20px;
@@ -15,7 +17,7 @@
 }
 
 .todolist__content {
-  background: antiquewhite;
+  /* background: antiquewhite; */
 
 }
 
@@ -60,6 +62,8 @@
   flex-direction: row;
   align-items: center;
   font-size: 16pt;
+  flex-wrap: wrap;
+  /* flex: 0 1 auto; */
 }
 
 .bottom__leftitems {
@@ -82,9 +86,6 @@
   font-weight: 600;
 }
 
-.bottom__leftitems_count p {
- 
-}
 
 .bottom__groups {
   display: inherit;

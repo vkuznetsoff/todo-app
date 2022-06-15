@@ -1,11 +1,13 @@
 .todo {
   border: 1px solid lightgrey;
+  border-radius: 15px;
+  background: antiquewhite;
+  margin-bottom: 3px;
 }
 
 .todo__content {
   display: flex;
   flex-direction: row;
-  align-items: center;
   margin: 10px;
 }
 
