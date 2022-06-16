@@ -5,6 +5,7 @@ import "./Todo.css";
 
 
 const Todo = ({ todo, updateTodo }) => {
+    
   const complitedStyle = {
     textDecoration: "line-through",
     opacity: "0.2"

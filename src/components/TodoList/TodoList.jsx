@@ -7,34 +7,37 @@ import arrow from "../../assets/img/arrow.svg"
 
 import "./TodoList.css";
 
+
+const initState = [
+  {
+    id: 1,
+    text: "Дизайн проекта",
+    status: COMPLITED,
+  },
+
+  {
+    id: 2,
+    text: "Верстка",
+    status: ACTIVE,
+  },
+
+  {
+    id: 3,
+    text: "Написание кода",
+    status: ACTIVE,
+  },
+]
+
 const TodoList = () => {
-  const [todos, setTodos] = useState(() => [
-    {
-      id: 1,
-      text: "Hello",
-      status: COMPLITED,
-    },
-
-    {
-      id: 2,
-      text: "Good Morning",
-      status: ACTIVE,
-    },
-
-    {
-      id: 3,
-      text: "I'm John",
-      status: ACTIVE,
-    },
-  ]);
+  const [todos, setTodos] = useState(() => initState);
 
   const [group, setGroup] = useState(ALL); //active | complited | all
 
   const activeCount = todos.filter(todo => todo.status === ACTIVE).length
   const complitedCount = todos.filter(todo => todo.status === COMPLITED).length
 
+  //Изменения статуса задания
   const updateTodo = (id) => {
-
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
@@ -50,6 +53,8 @@ const TodoList = () => {
 
   const updateTodoMemoized = useCallback((id) => updateTodo(id), [todos]);
 
+  //Обработчики выбора группы для отображения списка задач
+  //(Все, активные, завершенные)
   const displayAll = () => {
     setGroup(ALL)
   };
@@ -62,13 +67,16 @@ const TodoList = () => {
     setGroup(COMPLITED)
   };
 
+  //Функция удаления завершенных заданий
   const clearComplited = () => {
     setTodos(todos.filter(todo => todo.status !== COMPLITED))
   }
 
+  //Фильтрация списка дел в зависимости от выбранной группы
   const filteredTodos = (list) =>
     group !== "all" ? list.filter((todo) => todo.status === group) : list;
 
+  //Стиль кнопки при выборе группы
   const activeItemStyle = {
     border: "0.5px solid gray",
     borderRadius: "10px",
@@ -76,18 +84,23 @@ const TodoList = () => {
     color: "antiquewhite"
   }
 
+  //Стейт для textarea
   const [text, setText] = useState("")
 
+  //Добавление нового задания в стейт
   const addTodo = (text) => {
     setTodos([...todos, { id: uniqid(), text: text.trim(), status: ACTIVE }])
     setText("")
   }
+
+  //Добавление нового задание по нажатию изображения (стрелки-вниз)
   const inputImg = () => {
     if (text.trim()) {
       addTodo(text)
     }
   }
 
+  //Добавление нового задание по нажатию Enter
   const inputTextarea = (e) => {
     if (e.key === "Enter" && text.trim()) {
       addTodo(text)
@@ -156,3 +169,4 @@ const TodoList = () => {
 };
 
 export default TodoList;
+
