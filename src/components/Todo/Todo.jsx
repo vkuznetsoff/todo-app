@@ -5,7 +5,7 @@ import "./Todo.css";
 
 
 const Todo = ({ todo, updateTodo }) => {
-    
+
   const complitedStyle = {
     textDecoration: "line-through",
     opacity: "0.2"
@@ -19,6 +19,7 @@ const Todo = ({ todo, updateTodo }) => {
           style={{marginRight: "20px"}}
           id={todo.id}
           updateTodo={updateTodo}
+
           />
 
         <div className="todo__text" style={todo.status === COMPLITED ? complitedStyle : undefined}>

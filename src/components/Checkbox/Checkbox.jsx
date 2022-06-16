@@ -13,7 +13,7 @@ const Checkbox = ({checkInit, style, id, updateTodo}) => {
     }
 
     return (
-        <div className="checkbox" onClick={clickHandle} style={style}>
+        <div id="checkbox" className="checkbox" onClick={clickHandle} style={style}>
             <div className="checkbox__round" ><img src={roundSVG} /></div>
             {checked ? <div className="checkbox__checked"><img src={checkedSVG} /></div>
             : undefined }
