@@ -10,7 +10,7 @@
 <img src="https://s1.hostingkartinok.com/uploads/images/2022/06/c8cb41dece63c48b46a636fad363e227.jpg" width="500">
 
 
-<a href="https://trello-dashboard.vercel.app/" target="_blank">LIVE DEMO</a>
+<a href="https://todo-app-psi-lime.vercel.app/" target="_blank">LIVE DEMO</a>
 
 ## Languagies and Tools
 
