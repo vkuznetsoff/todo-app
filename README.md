@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+<h3 align="center"> TODO LIST </h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Functions:
+- add new Todo
+- change STATUS (active | complited)
+- filter by STATUS
+- remove complited todos
 
-## Available Scripts
+## Sreencast
+<img src="https://s1.hostingkartinok.com/uploads/images/2022/06/c8cb41dece63c48b46a636fad363e227.jpg" width="500">
 
-In the project directory, you can run:
 
-### `npm start`
+<a href="https://trello-dashboard.vercel.app/" target="_blank">LIVE DEMO</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Languagies and Tools
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img width="30px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/f2c31b8897a74da7737591378591f7b7.png" />
+<img width="30px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/b907542e162a3f993d9f25b8da2dfcfa.png" />
+<img width="35px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/35bb74122e5408633c262058e7dad2f1.png" />
+<img width="30px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/3c63dc7e57f797875c3060cc7bf3d547.png" />
+<img width="35px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/a991395c49790492a96f2d0ac873a3e7.png" />
+<img width="35px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/beeef1cea0192c4efd17bb1d626b78b2.png" />
+<img width="100px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/cda69a13613c9bde50f49cf0b6562d81.png" />
 
-### `npm test`
+## Development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Project includes some JEST test for components
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Run
 
-### `npm run eject`
+```
+ git clone https://github.com/vkuznetsoff/todo-app.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm i
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
