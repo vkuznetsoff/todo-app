@@ -1,4 +1,4 @@
-<h3 align="center"> TODO LIST </h3>
+<h1 align="center"> TODO LIST </h1>
 
 ### Functions:
 - add new Todo
@@ -22,19 +22,18 @@
 <img width="35px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/beeef1cea0192c4efd17bb1d626b78b2.png" />
 <img width="100px" align="left" src="https://s1.hostingkartinok.com/uploads/images/2022/05/cda69a13613c9bde50f49cf0b6562d81.png" />
 
+<br />
+
 ## Development
 
 Project includes some JEST test for components
 
-
 <br />
-<br />
-
 
 # Run
 
 ```
- git clone https://github.com/vkuznetsoff/todo-app.git
+git clone https://github.com/vkuznetsoff/todo-app.git
 
 npm i
 
