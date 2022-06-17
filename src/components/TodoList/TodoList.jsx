@@ -114,7 +114,12 @@ const TodoList = () => {
 
       <div className="content_inputblock">
         <div className="content_textarea">
-          <img src={arrow} alt="arrow" onClick={inputImg} />
+          <img
+            className="content_textarea__img"
+            src={arrow}
+            alt="arrow"
+            onClick={inputImg}
+          />
           <textarea
             name="textarea"
             placeholder="What needs to be done?"

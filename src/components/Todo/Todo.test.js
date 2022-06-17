@@ -17,7 +17,6 @@ describe("Testing <Todo /> component", () => {
     
     it("Component get defined props", () => {
         const component = create(<Todo todo={todos[0]} updateTodo={()=> {}}/> )
-
         const root = component.root
 
         expect(root.props.todo).toBeDefined() 
@@ -28,8 +27,8 @@ describe("Testing <Todo /> component", () => {
     it("Todo component display Checkbox from props", () => {
         const component = create(<Todo todo={todos[0]} /> )
         const instance = component.root
+        
         expect(instance.findByType(Checkbox)).toBeTruthy();
-    // expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
     })
 
     test("Display right text from props", () => {
